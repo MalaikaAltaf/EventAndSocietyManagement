@@ -1,6 +1,6 @@
 # EventifyHub
 
-![EventifyHub Logo](https://via.placeholder.com/150x50?text=EventifyHub) <!-- Replace with actual logo if available -->
+
 
 A comprehensive **Event and Society Management System** designed for educational institutions to streamline event organization, society management, and student participation. Built with a modern full-stack architecture, EventifyHub supports role-based access for Admins, Societies, and Students, ensuring efficient approval workflows and seamless user experiences.
 
