@@ -1,0 +1,4 @@
+- [ ] Update authController.js login to return societyId for any managed society (remove status filter)
+- [ ] Add back societyId to signup response in authController.js
+- [ ] Add back code in login-signup-client.js to store societyId after signup
+- [ ] Revert error message in create-event.js to original

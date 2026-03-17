@@ -1,0 +1,192 @@
+/* ===== GLOBAL RESET ===== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== BODY ===== */
+body {
+    min-height: 100vh;
+    font-family: inherit;
+    background-color: #071426;
+    background-image:
+        radial-gradient(ellipse at 10% 10%, rgba(255,255,255,0.03), transparent 12%),
+        radial-gradient(ellipse at 90% 90%, rgba(255,255,255,0.02), transparent 15%),
+        linear-gradient(135deg, #071426 0%, #083a52 45%, #042c31 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.20));
+    backdrop-filter: blur(4px) saturate(120%);
+    z-index: -1;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='f'><feTurbulence baseFrequency='0.8' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23f)' opacity='0.035'/></svg>");
+    z-index: -2;
+}
+
+/* ================= HEADER (FIXED – DARK LIKE SOCIETY) ================= */
+header {
+    width: 100%;
+    background: linear-gradient(135deg, #071426, #083a52);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+.integrated-header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* LOGO */
+.logo {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #2dd4bf;
+}
+
+/* NAV */
+.integrated-header nav {
+    display: flex;
+    gap: 30px;
+}
+
+.integrated-header nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #e5e7eb;
+}
+
+.integrated-header nav a.active-link {
+    background: #0ea5a5;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+}
+
+/* Logout button */
+.logout-btn {
+    background: linear-gradient(90deg, #00d1b2, #0077c8) !important;
+    color: #ffffff !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    border: none !important;
+    box-shadow: 0 6px 18px rgba(0,119,200,0.25);
+}
+
+.logout-btn:hover {
+    opacity: 0.95;
+}
+
+
+/* ===== FORM TOP ===== */
+.form-top {
+    text-align: center;
+    margin: 40px auto 25px;
+}
+
+.form-top h1 {
+    font-size: 2.2rem;
+    color: #2dd4bf;
+    margin-bottom: 8px;
+}
+
+.form-top p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+}
+
+/* ===== FORM CARD ===== */
+.form-card {
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto 60px;
+    background: white;
+    padding: 35px 40px;
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* ===== FORM ROW ===== */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #1f2933;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 13px 14px;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    font-size: 0.95rem;
+    background: #f8fafc;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #0ea5a5;
+}
+
+/* ===== BUTTON ===== */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    margin-top: 35px;
+}
+
+.primary-btn {
+    background: #0ea5a5;
+    color: #ffffff;
+    padding: 13px 34px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(14,165,165,0.35);
+}
+
+.primary-btn:hover {
+    background: #0d9488;
+}
+
+/* MESSAGE */
+#form-message {
+    margin-top: 18px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .integrated-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+}

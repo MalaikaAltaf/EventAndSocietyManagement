@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participants & Check-in | EventifyHub</title>
+    
+    <link rel="stylesheet" href="../../assets/css/participants-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+
+<header class="integrated-header">
+    <div class="logo">EventifyHub</div>
+    <nav>
+        <a href="society-dashboard.html">Dashboard</a>
+        <a href="create-event.html">Create Event</a>
+        <a href="participants-checkin.html" class="active">Participants</a>
+    </nav>
+    <a href="../student/login-signup.html" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+</header>
+
+<main>
+
+    <div class="page-title">
+        <h2>Event Participants & Check-in</h2>
+        <p>Select an event to view the registration list and manage check-ins.</p>
+    </div>
+
+    <section class="event-selector-card">
+        <div class="form-group event-select-group">
+            <label for="eventSelect">Select Event:</label>
+            <select id="eventSelect">
+                <option value="">-- Choose an event --</option>
+                <option value="1">Annual Tech Summit 2025 (Approved)</option>
+                <option value="2">AI Workshop Series (Approved)</option>
+                <option value="3">Society Meetup: Welcome Party (Pending)</option>
+            </select>
+        </div>
+
+        <div class="event-summary-box" id="eventSummary">
+            <p><strong>Title:</strong> <span id="summary-title">N/A</span></p>
+            <p><strong>Date:</strong> <span id="summary-date">N/A</span></p>
+            <p><strong>Registrations:</strong> <span id="summary-registrations">0</span> / <span id="summary-capacity">N/A</span></p>
+        </div>
+    </section>
+
+    <section class="participants-list-card">
+        <h3>Registered Students</h3>
+        
+        <div class="toolbar">
+            <input type="text" id="searchParticipant" placeholder="Search by Name or Student ID">
+            <button id="exportBtn" class="export-btn"><i class="fas fa-download"></i> Export CSV</button>
+        </div>
+
+        <div class="table-container">
+            <table class="participants-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Registered On</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="participantsTableBody">
+                    <tr>
+                        <td colspan="4" class="no-data-row">Please select an event to view participants.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+</main>
+
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/participants.js"></script>
+
+</body>
+</html>

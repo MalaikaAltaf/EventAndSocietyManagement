@@ -1,0 +1,203 @@
+:root {
+    /* Brand tokens */
+    --brand-primary: #00d1b2;
+    --brand-accent:  #0077c8;
+    --brand-warm:    #ffb86b;
+
+    --hub-teal: var(--brand-primary);
+    --hub-teal-dark: var(--brand-accent);
+
+    --hub-text-dark: #333;
+    --hub-text-light: #ffffff;
+    --hub-card-bg: #ffffff;
+    --hub-page-bg: #f4f4f4;
+    --hub-shadow-light: 0 4px 12px rgba(0,0,0,0.1);
+    --hub-border-radius: 12px;
+} 
+
+/* ===== GLOBAL ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: inherit;
+    /* Professional, aesthetic background: layered gradients + subtle texture */
+    background-color: #071426;
+    background-image:
+        radial-gradient(ellipse at 10% 10%, rgba(255,255,255,0.03), transparent 12%),
+        radial-gradient(ellipse at 90% 90%, rgba(255,255,255,0.02), transparent 15%),
+        linear-gradient(135deg, #071426 0%, #083a52 45%, #042c31 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}  
+
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.20));
+    backdrop-filter: blur(4px) saturate(120%);
+    -webkit-backdrop-filter: blur(4px) saturate(120%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='f'><feTurbulence baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23f)' opacity='0.035'/></svg>");
+    background-repeat: repeat;
+    z-index: -2;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+} 
+
+/* ===== HEADER ===== */
+header {
+    width: 100%;
+}
+
+.integrated-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    color: var(--brand-primary);
+    font-size: 28px;
+    font-weight: 800;
+}
+
+/* Navbar links */
+.integrated-header nav a {
+    color: var(--hub-text-light);
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+}
+
+.integrated-header nav a.active-link,
+.integrated-header nav a:hover {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+}
+
+/* Logout button */
+.logout-btn {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,119,200,0.12);
+}
+
+.logout-btn:hover {
+    background: var(--hub-teal-dark);
+}
+
+/* ===== MAIN ===== */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px 40px;
+}
+
+/* ===== TOP SECTION ===== */
+.top-section-container {
+    background: var(--hub-card-bg);
+    padding: 30px;
+    border-radius: var(--hub-border-radius);
+    box-shadow: var(--hub-shadow-light);
+    margin-bottom: 30px;
+}
+
+/* ===== ACTION CARDS GRID ===== */
+.action-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+/* Card styling */
+.action-card {
+    background: var(--hub-card-bg);
+    padding: 25px;
+    border-radius: var(--hub-border-radius);
+    box-shadow: var(--hub-shadow-light);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.card-header i {
+    color: var(--hub-teal);
+    margin-right: 8px;
+}
+
+.stat-number {
+    font-size: 36px;
+    font-weight: bold;
+    color: var(--hub-teal);
+}
+
+/* ===== SOCIETIES MANAGEMENT SPECIFIC ===== */
+.action-card p {
+    font-size: 14px;
+    color: var(--hub-text-dark);
+    margin-bottom: 12px;
+}
+
+.action-btn {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.2s;
+}
+
+.approve-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.approve-btn:hover {
+    background-color: #218838;
+}
+
+.reject-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.reject-btn:hover {
+    background-color: #c82333;
+}
+
+/* Placeholder text */
+.placeholder-text {
+    color: var(--hub-text-dark);
+    font-style: italic;
+}

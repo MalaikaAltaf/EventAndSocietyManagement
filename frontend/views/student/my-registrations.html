@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EventifyHub | Event Registration</title>
+
+    <link rel="stylesheet" href="../../assets/css/student-registration.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body class="bookmarks-page">
+
+<header>
+    <div class="integrated-header">
+        <div class="logo">EventifyHub</div>
+        <nav>
+            <a href="student-home.html">Home</a>
+            <a href="my-registrations.html" class="active-link">Register</a>
+            <a href="bookmarks.html">Bookmarks</a>
+            <a href="profile.html">Profile</a>
+        </nav>
+        <a href="../student/login-signup.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <!-- TOP TITLE (LIKE SOCIETY FORM) -->
+    <section class="form-top">
+        <h1>Student Event Registration</h1>
+        <p>Fill in the details below to register for the selected event.</p>
+    </section>
+
+    <!-- FORM CARD -->
+    <section class="form-card">
+
+        <form id="registration-form">
+
+            <!-- ROW 1 -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="reg-name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Student ID / Roll Number</label>
+                    <input type="text" id="reg-student-id" placeholder="e.g. 2023-CS-123" required>
+                </div>
+            </div>
+
+            <!-- ROW 2 -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Contact Number</label>
+                    <input type="tel" id="reg-contact" placeholder="e.g. 0300-1234567" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Department</label>
+                    <input type="text" id="reg-dept" placeholder="e.g. Computer Science" required>
+                </div>
+            </div>
+
+            <!-- ROW 3 -->
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Semester</label>
+                    <input type="text" id="reg-semester" placeholder="e.g. 5th" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Event Name</label>
+                    <input type="text" id="reg-event-name" placeholder="Enter event name" required>
+                </div>
+            </div>
+
+            <!-- ACTION -->
+            <div class="form-actions">
+                <button type="submit" class="primary-btn">
+                    Submit Registration
+                </button>
+            </div>
+
+            <p id="form-message"></p>
+
+        </form>
+
+    </section>
+
+</main>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/student_registrations.js"></script>
+</body>
+</html>

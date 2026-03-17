@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventifyHub | Society Dashboard</title>
+    
+    <link rel="stylesheet" href="../../assets/css/society-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="integrated-header">
+            <div class="logo">EventifyHub</div>
+            <nav>
+                <a href="society-dashboard.html" class="active-link">Dashboard</a>
+                <a href="create-event.html">Create Event</a>
+                <a href="participants-checkin.html">Participants</a>
+            </nav>
+            <a href="../student/login-signup.html" class="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="top-section-container">
+            <div class="dashboard-summary">
+                <h1>Welcome <span id="welcome-name">Society Manager</span></h1>
+                <p class="slogan-text">Manage your society events, participants, and approvals from one place.</p>
+            </div>
+
+            <div id="approval-alert" class="approval-alert-bar" style="display: none;">
+                <i class="fas fa-exclamation-triangle alert-icon"></i>
+                <span class="alert-message">Your society is currently pending approval.</span>
+            </div>
+        </section>
+
+        <section class="action-cards-grid">
+            
+            <div class="action-card">
+                <div class="card-header">
+                    <i class="fas fa-calendar-alt icon-teal"></i>
+                    <h2>Create & Manage Events</h2>
+                </div>
+                <p>Create new events, edit details, or remove outdated events.</p>
+                <a href="create-event.html" class="action-btn primary-teal">Create Event</a>
+            </div>
+
+            <div class="action-card">
+                <div class="card-header">
+                    <i class="fas fa-user-friends icon-teal"></i>
+                    <h2>Participants</h2>
+                </div>
+                <p>View registered students and manage event check-ins.</p>
+                <a href="participants-checkin.html" class="action-btn secondary-teal">View Participants</a>
+            </div>
+
+            <div class="action-card">
+                <div class="card-header">
+                    <i class="fas fa-clipboard-check icon-teal"></i>
+                    <h2>Event Status</h2>
+                </div>
+                <p>Check approval status of your submitted events.</p>
+                <a href="#" id="view-events-btn" class="action-btn secondary-teal">View Events</a>
+            </div>
+
+        </section>
+
+        <section class="my-events-section hidden">
+            <div class="my-events-header">
+                <h3>My Events</h3>
+                <div class="filter-tabs">
+                    <button class="tab-btn active" data-filter="all">All</button>
+                    <button class="tab-btn" data-filter="approved">Approved</button>
+                    <button class="tab-btn" data-filter="pending">Pending</button>
+                    <button class="tab-btn" data-filter="rejected">Rejected</button>
+                </div>
+            </div>
+            
+            <div class="event-list-container">
+                <p class="placeholder-text">Your pending and approved events will appear here.</p>
+            </div>
+        </section>
+
+    </main>
+    
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/society.js"></script>
+</body>
+</html>

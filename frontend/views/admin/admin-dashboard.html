@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventifyHub | Admin Dashboard</title>
+
+    <link rel="stylesheet" href="../../assets/css/admin_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="integrated-header">
+        <div class="logo">EventifyHub</div>
+        <nav>
+            <a href="admin-dashboard.html" class="active-link">Dashboard</a>
+            <a href="societies-management.html">Societies</a>
+            <a href="events-management.html">Events</a>
+        </nav>
+        <a href="../student/login-signup.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <!-- ===== TOP SECTION ===== -->
+    <section class="top-section-container">
+        <div class="dashboard-summary">
+            <h1>Welcome, Admin</h1>
+            <p class="slogan-text">
+                Monitor societies, events, and platform activity from one place.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== OVERVIEW CARDS ===== -->
+    <section class="action-cards-grid">
+
+        <div class="action-card">
+            <div class="card-header">
+                <i class="fas fa-users"></i>
+                <h2>Total Societies</h2>
+            </div>
+            <p class="stat-number" id="total-societies">0</p>
+        </div>
+
+        <div class="action-card">
+            <div class="card-header">
+                <i class="fas fa-calendar-check"></i>
+                <h2>Total Events</h2>
+            </div>
+            <p class="stat-number" id="total-events">0</p>
+        </div>
+
+        <div class="action-card">
+            <div class="card-header">
+                <i class="fas fa-user-friends"></i>
+                <h2>Total Participants</h2>
+            </div>
+            <p class="stat-number" id="total-participants">0</p>
+        </div>
+
+    </section>
+
+    <!-- ===== APPROVALS ===== -->
+    <section class="my-events-section">
+        <div class="my-events-header" style="margin-top: 0;">
+            <h3>Pending Events</h3>
+        </div>
+        <div id="pending-events-list" class="event-list-container">
+            <p class="placeholder-text">Pending events will appear here.</p>
+        </div>
+    </section>
+
+    <section id="notification-section">
+        <h3>New Alerts</h3>
+        <div id="admin-notification-list"></div>
+    </section>
+
+    <div id="admin-message" class="message"></div>
+
+</main>
+
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/admin.js"></script>
+</body>
+</html>
+

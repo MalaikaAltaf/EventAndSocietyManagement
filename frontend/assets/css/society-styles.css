@@ -1,0 +1,344 @@
+/*
+======================================================
+frontend/assets/css/society-styles.css
+Styles for the Society Manager Dashboard, with Integrated Header for consistency.
+======================================================
+*/
+
+/* --- CSS Variables --- */
+:root {
+    /* Brand tokens */
+    --brand-primary: #00d1b2;
+    --brand-accent:  #0077c8;
+    --brand-warm:    #ffb86b;
+
+    --hub-teal: var(--brand-primary);
+    --hub-teal-dark: var(--brand-accent);
+
+    --hub-text-dark: #333;
+    --hub-text-light: #ffffff;
+    --hub-card-bg: #ffffff;
+    --hub-page-bg: #f4f4f4; /* Light background for the main content area */
+    --hub-shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for cards */
+    --hub-warning-bg: #fff3cd; /* Light yellow background for alert */
+    --hub-warning-text: #856404; /* Dark text for alert */
+    --hub-border-radius: 12px;
+} 
+
+/* --- Global Body & Header (Ensure consistent look) --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit; 
+}
+
+body {
+    background-color: var(--hub-page-bg); 
+    color: var(--hub-text-dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Professional, aesthetic background: layered gradients + subtle texture */
+    background-color: #071426;
+    background-image:
+        radial-gradient(ellipse at 10% 10%, rgba(255,255,255,0.03), transparent 12%),
+        radial-gradient(ellipse at 90% 90%, rgba(255,255,255,0.02), transparent 15%),
+        linear-gradient(135deg, #071426 0%, #083a52 45%, #042c31 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    /* Remove background-color here as it's set by the body::after */
+} 
+
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.20));
+    backdrop-filter: blur(4px) saturate(120%);
+    -webkit-backdrop-filter: blur(4px) saturate(120%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='f'><feTurbulence baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23f)' opacity='0.035'/></svg>");
+    background-repeat: repeat;
+    z-index: -2;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+} 
+
+/* -------------------------------------------------------------------------- */
+/* --- NEW: INTEGRATED HEADER APPROACH (Matching Create Event / Participants) --- */
+/* -------------------------------------------------------------------------- */
+header {
+    /* Full width is removed, content is centered by being inside main's max-width */
+    width: 100%;
+    padding: 0; /* Remove padding here */
+    background-color: transparent; /* Make header background transparent */
+    box-shadow: none; /* Remove shadow */
+    z-index: 10;
+}
+
+.integrated-header {
+    max-width: 1200px; /* Aligns with main's max-width */
+    margin: 0 auto;
+    padding: 20px 40px; /* Padding for the content inside the header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--hub-text-dark); /* Header text color */
+}
+
+.integrated-header .logo {
+    color: var(--brand-primary);
+    font-size: 28px;
+    font-weight: 800;
+} 
+
+.integrated-header nav a {
+    color: var(--hub-text-light); /* Links are dark against the light background */
+    text-decoration: none;
+    margin-left: 15px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.integrated-header nav a.active-link,
+.integrated-header nav a:hover {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+    padding: 6px 10px;
+    border-radius: 8px;
+}
+
+.logout-btn {
+    /* Style the Logout button as a distinct secondary action */
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+    text-decoration: none;
+    padding: 8px 14px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-weight: 500;
+    box-shadow: 0 6px 18px rgba(0,119,200,0.12);
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,119,200,0.18);
+} 
+
+
+/* --- Main Dashboard Layout --- */
+main {
+    flex: 1;
+    padding: 30px 40px;
+    max-width: 1200px; 
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1; /* Ensures content is above the background blur */
+}
+
+/* --- Top Section (Welcome message and Alert, all in one container) --- */
+.top-section-container {
+    /* Styles remain the same, ensuring a white card appearance */
+    background: var(--hub-card-bg);
+    padding: 30px;
+    border-radius: var(--hub-border-radius);
+    box-shadow: var(--hub-shadow-light);
+    margin-bottom: 30px;
+}
+
+.dashboard-summary h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--hub-text-dark);
+    margin-bottom: 5px;
+}
+
+.dashboard-summary .slogan-text {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+/* --- Approval Alert Bar (Exactly as in the image) --- */
+.approval-alert-bar {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    background-color: var(--hub-warning-bg); 
+    color: var(--hub-warning-text);
+    border: 1px solid #ffeeba; 
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.alert-icon {
+    margin-right: 10px;
+    font-size: 1.1em;
+}
+
+/* --- Action Cards Grid (The three central boxes) --- */
+.action-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-bottom: 40px;
+}
+
+.action-card {
+    background: var(--hub-card-bg);
+    padding: 25px;
+    border-radius: var(--hub-border-radius);
+    box-shadow: var(--hub-shadow-light);
+}
+
+.action-card .card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.action-card .card-header .fas {
+    font-size: 20px;
+    margin-right: 8px;
+    color: var(--hub-teal);
+}
+
+.action-card h2 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.action-card p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+    min-height: 40px;
+}
+
+/* --- Action Buttons (Teal buttons as per image) --- */
+.action-btn {
+    display: inline-block;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.15s;
+    font-size: 14px;
+    color: var(--hub-text-light);
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    box-shadow: 0 6px 18px rgba(0,119,200,0.12);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,119,200,0.18);
+}
+
+/* Secondary variant keeps a subtle border - reuses base styles to avoid duplication */
+.action-btn.secondary-teal {
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 6px 18px rgba(0,119,200,0.06);
+}
+
+.action-btn.secondary-teal:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(0,119,200,0.12);
+}
+
+
+/* --- My Events Section (The bottom section) --- */
+.my-events-section {
+    background: var(--hub-card-bg);
+    padding: 25px;
+    border-radius: var(--hub-border-radius);
+    box-shadow: var(--hub-shadow-light);
+    transition: max-height 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+    transform-origin: top;
+    will-change: opacity, max-height, transform;
+    overflow: visible;
+}
+
+/* Hidden state collapses the section without changing layout when visible */
+.my-events-section.hidden {
+    max-height: 0;
+    opacity: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    border: none;
+    box-shadow: none;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.my-events-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--hub-text-dark);
+    margin-bottom: 15px;
+}
+
+/* Filter tabs (All / Approved / Pending / Rejected) */
+.filter-tabs {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid #e6e6e6;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, transform 0.12s;
+    color: #333;
+}
+
+.tab-btn:hover {
+    background: rgba(255,255,255,0.04);
+}
+
+.tab-btn.active {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+    border: none;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px rgba(0,119,200,0.08);
+}
+
+.event-list-container {
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.placeholder-text {
+    color: #999;
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* --- Responsive adjustments (keep existing media queries) --- */
+@media (max-width: 900px) {
+    .integrated-header {
+        padding: 20px;
+    }
+}
+/* Existing media queries... */

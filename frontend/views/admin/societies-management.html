@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventifyHub | Societies Management</title>
+
+    <link rel="stylesheet" href="../../assets/css/admin_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="integrated-header">
+        <div class="logo">EventifyHub</div>
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="societies-management.html" class="active-link">Societies</a>
+            <a href="events-management.html">Events</a>
+        </nav>
+        <a href="../student/login-signup.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <!-- ===== TOP SECTION ===== -->
+    <section class="top-section-container">
+        <div class="dashboard-summary" style="display: flex; justify-content: space-between; align-items: center;">
+            <div>
+                <h1>Societies Management</h1>
+                <p class="slogan-text">
+                    Approve or reject pending societies requests, or add a new one.
+                </p>
+            </div>
+            <button id="add-society-btn" class="logout-btn" style="background: var(--hub-teal-dark); height: fit-content;">
+                <i class="fas fa-plus"></i> Add Society
+            </button>
+        </div>
+        <!-- Status filter removed -->
+    </section>
+
+    <!-- ===== ADD SOCIETY MODAL ===== -->
+    <div id="add-society-modal" class="modal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+        <div class="modal-content" style="background-color: white; margin: 5% auto; padding: 30px; border-radius: 12px; width: 500px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
+            <h2 style="margin-bottom: 20px; color: var(--hub-teal);">Add New Society</h2>
+            <form id="add-society-form">
+                <div style="margin-bottom: 15px;">
+                    <label for="new-society-name" style="display: block; margin-bottom: 5px;">Club Name</label>
+                    <input type="text" id="new-society-name" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                </div>
+                <div style="margin-bottom: 15px;">
+                    <label for="new-society-description" style="display: block; margin-bottom: 5px;">Description</label>
+                    <textarea id="new-society-description" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px; height: 80px;"></textarea>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div>
+                        <label for="new-society-president" style="display: block; margin-bottom: 5px;">President Name</label>
+                        <input type="text" id="new-society-president" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+                    <div>
+                        <label for="new-society-gs" style="display: block; margin-bottom: 5px;">General Secretary</label>
+                        <input type="text" id="new-society-gs" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+                </div>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                    <div>
+                        <label for="new-society-media" style="display: block; margin-bottom: 5px;">Media Lead</label>
+                        <input type="text" id="new-society-media" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+                    <div>
+                        <label for="new-society-em" style="display: block; margin-bottom: 5px;">Event Manager Lead</label>
+                        <input type="text" id="new-society-em" required style="width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 6px;">
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <button type="button" id="close-modal-btn" style="padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; background: #eee;">Cancel</button>
+                    <button type="submit" style="padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; background: var(--hub-teal); color: white;">Save Society</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ===== SOCIETIES LIST ===== -->
+    <section id="all-societies-list-admin" class="action-cards-grid">
+        <p class="placeholder-text">Loading societies...</p>
+    </section>
+
+</main>
+
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventifyHub | Login/Register</title>
+    
+    <link rel="stylesheet" href="../../assets/css/student-styles.css">
+</head>
+<body>
+
+    <main>
+        <div class="form-container">
+            
+            <div class="brand-header">
+                <div class="logo-text">EventifyHub</div>
+                <div class="slogan">Your Campus Event Navigator</div>
+            </div>
+
+            <form id="login-form">
+                <div class="form-title">Log In</div>
+                
+                <input type="email" id="login-email" name="login-email" placeholder="Email" required>
+                <input type="password" id="login-password" name="login-password" placeholder="Password" required>
+                
+                <div class="role-toggle-group">
+                    <button type="button" class="role-button selected-role" data-role="Student">Student</button>
+                    <button type="button" class="role-button" data-role="Society">Society Manager</button>
+                    <button type="button" class="role-button" data-role="Admin">Admin</button>
+                </div>
+                
+                <select id="login-role" name="login-role" class="role-select" style="display:none;">
+                    <option value="Student" selected>Student</option>
+                    <option value="Society">Society Manager</option>
+                    <option value="Admin">Admin</option>
+                </select>
+
+                <button type="submit" class="submit-btn">Login</button>
+                <div id="login-message" class="message"></div>
+                
+                <div class="switch-form-prompt">
+                    Don't have an account? <a href="#" id="switch-to-register">Register</a>
+                </div>
+            </form>
+
+            <form id="signup-form" style="display:none;">
+                <div class="form-title">Create Account</div>
+                
+                <input type="text" id="signup-name" name="signup-name" placeholder="Name" required>
+                <input type="email" id="signup-email" name="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" name="signup-password" placeholder="Password" required>
+                
+                <div class="role-toggle-group">
+                    <button type="button" class="role-button selected-role" data-role="Student">Student</button>
+                    <button type="button" class="role-button" data-role="Society">Society Manager</button>
+                    <button type="button" class="role-button" data-role="Admin">Admin</button> 
+                </div>
+
+                <select id="signup-role" name="signup-role" class="role-select" style="display:none;">
+                    <option value="Student" selected>Student</option>
+                    <option value="Society">Society Manager</option>
+                    <option value="Admin">Admin</option>
+                </select>
+                
+                <input type="text" id="signup-dept" name="signup-dept" placeholder="Department / Society Name">
+                <button type="submit" class="submit-btn">Register</button>
+                <div id="signup-message" class="message"></div>
+
+                 <div class="switch-form-prompt">
+                    Already have an account? <a href="#" id="switch-to-login">Log In</a>
+                </div>
+            </form>
+            
+            <div class="copyright">
+                &copy; 2025 EventifyHub. All rights reserved.
+            </div>
+        </div>
+    </main>
+
+    <script src="../../assets/js/api.js"></script> 
+    <script src="../../assets/js/auth.js"></script> 
+    <script src="../../assets/js/login-signup-client.js"></script> 
+</body>
+</html>

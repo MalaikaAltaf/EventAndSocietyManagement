@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventifyHub | Events Management</title>
+
+    <link rel="stylesheet" href="../../assets/css/admin_dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="integrated-header">
+        <div class="logo">EventifyHub</div>
+        <nav>
+            <a href="admin-dashboard.html">Dashboard</a>
+            <a href="societies-management.html">Societies</a>
+            <a href="events-management.html" class="active-link">Events</a>
+        </nav>
+        <a href="../student/login-signup.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</header>
+
+<main>
+
+    <!-- ===== TOP SECTION ===== -->
+    <section class="top-section-container">
+        <h1>Events Management</h1>
+        <p>Approve or reject events submitted by societies.</p>
+    </section>
+
+    <!-- ===== FILTER CARD ===== -->
+    <section class="action-cards-grid">
+        <div class="action-card" style="background: white; padding: 20px; border-radius: 12px;">
+            <label for="status-filter">Filter by Status:</label>
+            <select id="status-filter" style="padding: 5px; border-radius: 4px; border: 1px solid #ddd;">
+                <option value="All">All</option>
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Rejected">Rejected</option>
+            </select>
+            <button id="fetch-filtered-events-btn" class="action-btn" style="background: var(--hub-teal); color: white; border: none; padding: 5px 15px; border-radius: 4px; cursor: pointer; margin-left: 10px;">Fetch</button>
+        </div>
+    </section>
+
+    <!-- ===== EVENTS LIST ===== -->
+    <section id="all-events-list-admin" class="action-cards-grid">
+        <p class="placeholder-text">Loading events...</p>
+    </section>
+
+</main>
+
+<script src="../../assets/js/api.js"></script>
+<script src="../../assets/js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>EventifyHub | Profile</title>
+
+    <link rel="stylesheet" href="../../assets/css/student_pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <div class="integrated-header">
+        <div class="logo">EventifyHub</div>
+        <nav>
+            <a href="student-home.html">Home</a>
+            <a href="my-registrations.html">Register</a>
+            <a href="bookmarks.html">Bookmarks</a>
+            <a href="profile.html" class="active-link">Profile</a>
+        </nav>
+        <a href="../student/login-signup.html" class="logout-btn">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </a>
+    </div>
+</header>
+
+<main class="profile-page">
+
+    <!-- ===== PROFILE CARD ===== -->
+    <section class="profile-card-main">
+
+        <div class="profile-info">
+            <div class="profile-top">
+                <h2 id="profile-name"></h2>
+                <button id="edit-profile-btn" class="btn edit-btn">Edit</button>
+            </div>
+            <p class="profile-role" id="profile-role"></p>
+
+            <div class="profile-meta" id="profile-display">
+                <div>
+                    <span>Student ID</span>
+                    <p id="profile-studentid"></p>
+                </div>
+                <div>
+                    <span>Email</span>
+                    <p id="profile-email"></p>
+                </div>
+                <div>
+                    <span>Contact</span>
+                    <p id="profile-contact"></p>
+                </div>
+                <div>
+                    <span>Department</span>
+                    <p id="profile-dept"></p>
+                </div>
+                <div>
+                    <span>Semester</span>
+                    <p id="profile-semester"></p>
+                </div>
+            </div>
+
+            <form id="profile-form" class="profile-form" style="display:none;">
+                <label>Name<br><input type="text" id="input-name" /></label>
+                <label>Student ID<br><input type="text" id="input-studentid" /></label>
+                <label>Email<br><input type="email" id="input-email" /></label>
+                <label>Contact<br><input type="tel" id="input-contact" /></label>
+                <label>Department<br><input type="text" id="input-dept" /></label>
+                <label>Semester<br><input type="text" id="input-semester" /></label>
+                <div class="form-actions">
+                    <button type="button" id="save-profile-btn" class="btn save-btn">Save</button>
+                    <button type="button" id="cancel-profile-btn" class="btn cancel-btn">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="profile-image-box">
+            <img id="profile-img" src="../../assets/images/default-avatar.png">
+            <label for="upload-img" class="edit-photo">
+                <i class="fas fa-camera"></i>
+            </label>
+            <input type="file" id="upload-img" accept="image/*" hidden>
+        </div>
+
+    </section>
+
+    <!-- ===== STATS ===== -->
+    <section class="profile-stats-grid">
+
+        <div class="stat-card">
+            <i class="fas fa-users"></i>
+            <h4>Societies</h4>
+            <p>Tech Society, Cultural Club</p>
+        </div>
+
+        <div class="stat-card">
+            <i class="fas fa-calendar-check"></i>
+            <h4>Registered Events</h4>
+            <p>5 Events</p>
+        </div>
+
+    </section>
+
+</main>
+
+<script src="../../assets/js/student_profile.js"></script>
+</body>
+</html>

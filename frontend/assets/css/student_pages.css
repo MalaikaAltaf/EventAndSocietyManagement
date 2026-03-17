@@ -1,0 +1,579 @@
+@import url("student_home.css");
+/* ================== GLOBAL ================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* PAGE BACKGROUND (GREY LIKE PARTICIPANTS PAGE) */
+body {
+    min-height: 100vh;
+    font-family: inherit;
+    /* Professional, aesthetic background: layered gradients + subtle texture */
+    background-color: #071426;
+    background-image:
+        radial-gradient(ellipse at 10% 10%, rgba(255,255,255,0.03), transparent 12%),
+        radial-gradient(ellipse at 90% 90%, rgba(255,255,255,0.02), transparent 15%),
+        linear-gradient(135deg, #071426 0%, #083a52 45%, #042c31 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
+}  
+
+body::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.20));
+    backdrop-filter: blur(4px) saturate(120%);
+    -webkit-backdrop-filter: blur(4px) saturate(120%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><filter id='f'><feTurbulence baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23f)' opacity='0.035'/></svg>");
+    background-repeat: repeat;
+    z-index: -2;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+} 
+
+/* ================== HEADER ================== */
+header {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.integrated-header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+}
+
+/* NAV */
+.integrated-header nav {
+    display: flex;
+    gap: 28px;
+}
+
+.integrated-header nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #1f2933;
+}
+
+.integrated-header nav a.active-link {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+    padding: 6px 10px;
+    border-radius: 8px;
+} 
+
+/* LOGOUT BUTTON (RED) */
+.logout-btn {
+    color: #dc2626;
+    border: 1px solid #dc2626;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.logout-btn:hover {
+    background: #dc2626;
+    color: white;
+}
+
+/* ================== PROFILE PAGE ================== */
+.profile-page {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* ================== MAIN PROFILE CARD ================== */
+.profile-card-main {
+    background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+    color: white;
+    border-radius: 18px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+} 
+
+.profile-info h2 {
+    font-size: 30px;
+}
+
+.profile-role {
+    opacity: 0.9;
+    margin: 6px 0 25px;
+}
+
+.profile-meta {
+    display: flex;
+    gap: 40px;
+}
+
+.profile-meta span {
+    font-size: 12px;
+    text-transform: uppercase;
+    opacity: 0.8;
+}
+
+.profile-meta p {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Edit button and inline profile form */
+.profile-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: space-between;
+}
+
+.btn {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn:hover { opacity: 0.95; }
+
+.profile-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.profile-form label {
+    font-size: 13px;
+    color: rgba(255,255,255,0.95);
+}
+
+.profile-form input {
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.save-btn {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,119,200,0.12);
+    font-weight: 600;
+} 
+
+.cancel-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.18);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ================== PROFILE IMAGE ================== */
+.profile-image-box {
+    position: relative;
+    width: 140px;
+    height: 140px;
+}
+
+.profile-image-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    border: 4px solid white;
+}
+
+.edit-photo {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: white;
+    color: #0fb9b1;
+    padding: 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* ================== STATS GRID ================== */
+.profile-stats-grid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+}
+
+.stat-card i {
+    font-size: 30px;
+    color: #0fb9b1;
+    margin-bottom: 10px;
+}
+
+.stat-card h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #0b7f7a;
+}
+
+.stat-card p {
+    font-weight: 600;
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 768px) {
+    .integrated-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .profile-card-main {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .profile-meta {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .profile-stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================== EVENT DETAILS (UNCHANGED) ================== */
+.event-details-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-row {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: var(--hub-text-dark);
+}
+
+.detail-row i {
+    color: var(--hub-teal);
+    margin-right: 10px;
+    width: 20px;
+}
+
+.event-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.primary-btn {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 6px 18px rgba(0,119,200,0.12);
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,119,200,0.18);
+}
+
+.secondary-btn {
+    background: transparent;
+    border: 1px solid var(--brand-primary);
+    color: var(--brand-primary);
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background: linear-gradient(90deg, var(--brand-primary), var(--brand-accent));
+    color: var(--hub-text-light);
+}
+.logout-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #dc2626 !important;
+    padding: 0 !important;
+}
+
+/* Optional hover (clean) */
+.logout-btn:hover {
+    text-decoration: underline;
+    background: transparent !important;
+}
+
+/* ===============================
+   STUDENT BOOKMARK PAGE (POLISHED)
+   =============================== */
+
+/* Header Section */
+.bookmark-header {
+    width: 90%;
+    margin: 40px auto 30px;
+    padding: 35px 40px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.bookmark-header-content h1 {
+    font-size: 2rem;
+    color: #1f2933;
+    margin-bottom: 6px;
+}
+
+.bookmark-header-content p {
+    color: #6b7280;
+    font-size: 0.95rem;
+}
+
+.bookmark-header-info .info-box {
+    background: #0ea5a5;
+    color: white;
+    padding: 14px 18px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    box-shadow: 0 8px 20px rgba(14,165,165,0.4);
+}
+
+/* Bookmark Grid */
+.bookmark-grid {
+    width: 90%;
+    margin: 20px auto 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    gap: 28px;
+}
+
+/* Bookmark Card */
+.bookmark-card {
+    background: linear-gradient(135deg, #14b8a6, #0ea5e9);
+    padding: 26px;
+    border-radius: 18px;
+    color: white;
+    box-shadow: 0 14px 32px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+.bookmark-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 22px 45px rgba(0,0,0,0.35);
+}
+
+.bookmark-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bookmark-header-row h2 {
+    font-size: 1.3rem;
+}
+
+.bookmark-badge {
+    background: rgba(255,255,255,0.25);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+}
+
+/* Event Info */
+.bookmark-info {
+    margin-top: 14px;
+    font-size: 0.95rem;
+}
+
+.bookmark-info p {
+    margin-bottom: 6px;
+}
+
+.bookmark-info i {
+    margin-right: 8px;
+}
+
+/* Actions */
+.bookmark-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.bookmark-actions button {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.view-btn {
+    background: white;
+    color: #0ea5e9;
+}
+
+.remove-btn {
+    background: rgba(255,255,255,0.25);
+    color: white;
+}
+
+/* Empty State */
+.empty-bookmarks {
+    width: 90%;
+    margin: 60px auto;
+    text-align: center;
+    color: #6b7280;
+    font-size: 1.1rem;
+}
+/* Subtle spacing polish like society dashboard */
+.bookmark-card h2 {
+    line-height: 1.3;
+}
+
+.bookmark-info {
+    opacity: 0.95;
+}
+
+.bookmark-actions button {
+    transition: background 0.2s ease;
+}
+
+.view-btn:hover {
+    background: #e6f9ff;
+}
+
+.remove-btn:hover {
+    background: rgba(255,255,255,0.35);
+}
+/* ===== BOOKMARKS PAGE WHITE BACKGROUND ===== */
+.bookmarks-page {
+    background: #f5f7fa !important;
+}
+/* =====================================
+   FIX: STUDENT HEADER SAME AS SOCIETY
+   ===================================== */
+
+/* Header background (dark gradient like society) */
+header {
+    background: linear-gradient(135deg, #071426 0%, #083a52 45%, #042c31 100%) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+    border-bottom: none !important;
+}
+
+/* Header layout */
+.integrated-header {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo */
+.integrated-header .logo {
+    color: #00d1b2 !important;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+/* Navbar links */
+.integrated-header nav a {
+    color: #ffffff !important;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 6px;
+    transition: background 0.25s ease;
+}
+
+/* Active + Hover */
+.integrated-header nav a.active-link,
+.integrated-header nav a:hover {
+    background: linear-gradient(90deg, #00d1b2, #0077c8);
+}
+
+/* Logout button */
+.logout-btn {
+    background: linear-gradient(90deg, #00d1b2, #0077c8) !important;
+    color: #ffffff !important;
+    padding: 8px 16px !important;
+    border-radius: 6px !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    border: none !important;
+    box-shadow: 0 6px 18px rgba(0,119,200,0.25);
+}
+
+.logout-btn:hover {
+    opacity: 0.95;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Reports</title>
+    <link rel="stylesheet" href="../../assets/css/global.css">
+    <link rel="stylesheet" href="../../assets/css/admin-styles.css">
+</head>
+<body>
+    <header>
+        <h1>Admin - System Reports</h1>
+        <nav>
+            <a href="admin-dashboard.html">Approvals Dashboard</a> | 
+            <a href="societies-management.html">Manage Societies</a> | 
+            <a href="events-management.html">Manage Events</a> |
+            <a href="reports-page.html">Reports</a> | 
+            <a href="../student/login-signup.html" onclick="logout()">Logout</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Generate and View System Reports</h2>
+        
+        <div id="report-message" class="message success">
+            Select a report type and time range to generate data.
+        </div>
+        
+        <div class="card-grid">
+            <div class="card">
+                <h3>Event Registration Summary</h3>
+                <p>Total registrations by month/semester.</p>
+                <button>Generate Report 1</button>
+            </div>
+            <div class="card">
+                <h3>Society Activity Report</h3>
+                <p>Events created and approved per society.</p>
+                <button>Generate Report 2</button>
+            </div>
+            <div class="card">
+                <h3>User Activity Report</h3>
+                <p>New user signups over time.</p>
+                <button>Generate Report 3</button>
+            </div>
+        </div>
+
+        <hr>
+
+        <h3>Report Output Area</h3>
+        <pre id="report-output" style="background: #eee; padding: 15px; border-radius: 4px; overflow-x: auto;">
+            Report data will appear here in table or JSON format.
+        </pre>
+    </main>
+
+    <footer><p>&copy; Admin Portal</p></footer>
+
+    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+</body>
+</html>
